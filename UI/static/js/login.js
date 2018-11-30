@@ -19,10 +19,32 @@ function loginUser(e){
         body:JSON.stringify(data)
     }).then((response)=>response.json())
         .then((data)=>{
+
             document.getElementById('login_error').innerText=data['message'];
             document.getElementById('login_error').style.color='white';
-            if (data['access-token']){
+
+            if (data['access-token']=== data['access-token'] && username =='admin'){
+
+                window.location.replace('../templates/adminParcel.html');
+               let token = data['access-token'];
+
+               // storing our data locally in the browser
+               localStorage.setItem('access-token', token);
+               localStorage.setItem('logged-in-user', username);
+
+            }else if (data['access-token']===data['access-token']){
+
                 window.location.replace('../templates/parcelOrder.html');
+                //storing our data locally in the browser
+
+                let token = data['access-token'];
+                localStorage.setItem('access-token', token);
+                localStorage.setItem('logged-in-user', username);
+
+            }else{
+
+                // redirect the user to the sign up page
+                window.location.replace('../templates/signup.html');
             }
     });
 }
