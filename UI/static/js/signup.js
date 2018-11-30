@@ -29,7 +29,6 @@ function registerUser(e){
         password:password,
         email:email
     };
-
     fetch('http://127.0.0.1:5000/api/v1/auth/signup',{
         method:'POST',
         headers: {
@@ -42,6 +41,7 @@ function registerUser(e){
         .then(function(data){
             console.log(data['message']);
             if(data['message']==='your account has been created successfully'){
+                alert('you account has been created successfully');
                 window.location.replace('../templates/login.html');
             }
             else if( data['message']=== 'email already taken'){
