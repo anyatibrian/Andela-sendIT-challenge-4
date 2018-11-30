@@ -1,0 +1,290 @@
+body{
+    font-size:12px;
+    font-family: 'Raleway', sans-serif;
+    margin: 0px;
+}
+/* navigation section*/
+.navbar,.header{
+    background: black;
+    margin: 0px 0px 0px;
+}
+ul {
+    list-style-type: none;
+    margin: 0 ;
+    padding-top: 30px;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the color of the link on hover */
+li a:hover {
+    border: 1px solid orange;
+    border-radius: 5px;
+}
+/* various column areas*/
+/* user profile image section */
+.user-area{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.user-area>img{
+    width:80px;
+    height:80px;
+    border-radius: 50%;
+    border: 5px solid orange;
+}
+
+.col-1 {
+    width: 8.33%;
+    float: left;
+}
+.col-2 {
+    width: 16.66%;
+    float: left;
+}
+.col-3 {
+    width: 25%;
+    float: left;
+}
+.col-4 {
+    width: 33.33%;
+    float: left
+}
+.col-5 {
+    width: 41.66%;
+    float: left;
+}
+.col-6 {
+    width: 50%;
+    float: left;
+
+}
+.col-7 {
+    width: 58.33%;
+    float: left;
+}
+.col-8 {
+    width: 66.66%;
+    float: left;
+    padding-bottom:20px;
+}
+.col-9 {
+    width: 75%;
+    float:left;
+}
+.col-10 {
+    width: 83.33%;
+    float: left;
+}
+.col-11 {
+    width: 91.66%;
+    float: left;
+
+}
+.col-12 {
+    width:100%;
+    float:left;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+/* styling for various button components */
+/* button elements styling*/
+.button-sunshine{
+    background:orange;
+    color:white;
+    padding: 10px 50px 10px 50px;
+    font-size: 20px;
+    margin: 10px 0 10px 0;
+    border: 1px solid orange;
+    border-radius: 5px;
+}
+.button-success{
+    background-color:lightseagreen;
+    padding: 10px 10px 10px 10px;
+    border-radius: 4px;
+    color: white;
+    border: 1px lightseagreen;
+    margin-bottom:5px;
+    font-family: 'Raleway', sans-serif;
+}
+.button-sunshine-outline{
+    background: none;
+    font-family: 'Raleway', sans-serif;
+    border:2px solid orange;
+    padding: 10px 30px 10px 30px;
+    font-size: 15px;
+    margin: 30px 10px 30px 0;
+    color: orange;
+    float: right;
+    border-radius: 5px;
+}
+.logout_button{
+    color: orange;
+    padding:10px 30px 10px 30px;
+    margin-top: 30px;
+    background:black;
+    border-radius:50px;
+    border: 4px orange solid;
+}
+/*form section areas*/
+
+.form-control{
+    width: 100%;
+    background:none;
+    color:white;
+    padding: 10px 5px 10px 5px;
+    border-radius: 5px;
+    margin: 5px 0px 5px 0px;
+    border: 2px solid white;
+
+}
+.form-area-section-modal{
+    margin-top: 10%;
+    margin-bottom:0;
+    background: grey;
+    padding:50px 50px 50px 50px;
+    opacity:0.95;
+    color: white;
+}
+.form-area-section{
+    margin-top: 10%;
+    margin-bottom:0;
+    background:lightseagreen;
+    padding:50px 50px 50px 50px;
+    opacity:0.95;
+    color: white;
+}
+.form-area-section-login{
+    margin-top: 40%;
+    margin-bottom:0;
+    background:lightseagreen;
+    padding:50px 50px 50px 50px;
+    opacity:0.95;
+    color: white;
+}
+.search-form{
+    width:80%;
+    background:none;
+    font-family:'Raleway',sans-serif;
+    font-size: 15px;
+    color:orange;
+    padding: 10px 5px 10px 30px;
+    border-radius: 50px;
+    margin: 30px 5px 5px 0px;
+    border: 2px solid orange;
+}
+/* end of the styling for various form elements
+ */
+/* the table styling */
+#myTable {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #ddd;
+    font-size: 15px;
+    margin-top: 30px;
+    overflow-x:auto;
+    margin-right: 30px;
+    margin-left: 50px;
+}
+
+#myTable th, #myTable td {
+    text-align: left;
+    padding: 12px;
+}
+
+#myTable tr {
+    /* Add a bottom border to the  table rows */
+    border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+    background-color: #f1f1f1;
+}
+/* modal boxes */
+/* The Modal background */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+/* Close button on hover */
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+/* the styling for the content */
+.content{
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.content-with-image{
+    background-image: url("../images/sendIT.png");
+    width: 100%;
+    height: auto;
+    background-size:cover;
+}
+/* end of the content styling */
+/* footer section */
+.footer-section{
+    margin-top: 50px;
+    background:black;
+    padding: 30px 0px 30px 0px;
+}
+.footer-section2{
+    margin-top: 50px;
+    padding: 0px 0px 0px 0px;
+}
+.copy-right-area > p{
+    text-align:center;
+    color:white;
+    font-size:12px;
+}
+/* end of styling for footers section */
