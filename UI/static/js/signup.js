@@ -23,7 +23,7 @@ function registerUser(e){
         document.getElementById('email_error').style.color="red";
         return false
     }
-
+    //posting information into the database
     let data = {
         username:username,
         password:password,
