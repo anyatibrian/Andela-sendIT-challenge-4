@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sendIT|userDashboard|parcelOrders</title>
+    <!-- link to main.css-->
+    <link  rel="stylesheet" type="text/css"   href="../static/css/main.css" >
+    <!-- link to the Raleway google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+</head>
+<body>
+<div class="header">
+    <!-- the header content goes here-->
+    <div class="nav-bar">
+        <!-- the navigation begins from here-->
+        <div class="row">
+            <div class="col-1">
+                <h2></h2>
+            </div>
+            <div class="col-2">
+                <ul>
+                    <li><a href="parcelOrder.html">parcel Orders</a></li>
+                    <li><a href="adminParcel.html"> Admin</a></li>
+                </ul>
+            </div>
+            <div class="col-5">
+                <input type="text" name="search" id="search" class="search-form " placeholder="please enter your search........">
+            </div>
+            <div class="col-4">
+                <div class="row">
+                    <div class="col-2">
+                        <div class="user-area" onclick="display_user_profile()">
+                            <img src="../static/images/default.jpg">
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <a href="login.html"><button class="logout_button"> logout</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- the navigation content begins here-->
+    </div>
+    <!-- the header content ends here-->
+</div>
+<div class="main-content">
+    <!-- the main content begins here-->
+    <div class="row userAdmin-dashboard-content">
+        <div class="col-11">
+            <button class="button-sunshine-outline" id="add-order" onclick="display_add_parcel_order()">new order</button>
+            <table id="myTable">
+                <tr class="header">
+                    <th style="width:10%;">Serial No.</th>
+                    <th style="width:10%;">Parcel name</th>
+                    <th style="width:30%;">Description</th>
+                    <th style="width:10%;">Pick up</th>
+                    <th style="width:10%;">Destination</th>
+                    <th style="width:15%;">Current location</th>
+                    <th style="width:10%;">Price</th>
+                    <th style="width:10%;">Status</th>
+                    <th style="width:15%;">Delivery </th>
+                </tr>
+                <tr>
+                    <td>12856</td>
+                    <td>cooker</td>
+                    <td>
+                        Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.
+                    </td>
+                    <td>Tororo</td>
+                    <td>Kampala</td>
+                    <td>Jinja</td>
+                    <td>4600 Ugx</td>
+                    <td>Transit</td>
+                    <td><button  class="button-success" onclick="update_parcel_order()">update</button></td>
+                </tr>
+                <tr>
+                    <td>12856</td>
+                    <td>cooker</td>
+                    <td>
+                        Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.
+                    </td>
+                    <td>Tororo</td>
+                    <td>Kampala</td>
+                    <td>Jinja</td>
+                    <td>4600 Ugx</td>
+                    <td>Delivered</td>
+                    <td><button id="" class="button-success" onclick="update_parcel_order()">update</button></td></td>
+                </tr>
+                <tr>
+                    <td>12856</td>
+                    <td>laptops</td>
+                    <td>
+                        Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.
+                    </td>
+                    <td>Tororo</td>
+                    <td>Kampala</td>
+                    <td>Jinja</td>
+                    <td>4600 Ugx</td>
+                    <td>Transit</td>
+                    <td><button  class="button-success" onclick="update_parcel_order()">update</button></td>
+                </tr>
+                <tr>
+                    <td>12856</td>
+                    <td>cooker</td>
+                    <td>
+                        Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.
+                    </td>
+                    <td>Tororo</td>
+                    <td>Kampala</td>
+                    <td>Jinja</td>
+                    <td>4600 Ugx</td>
+                    <td>Transit</td>
+                    <td><button class="button-success" onclick="update_parcel_order()">update</button></td>
+
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="col-1">
+        <p></p>
+    </div>
+    <!-- the content ends here-->
+</div>
+<!-- the beginning of the create parcel order modal box section-->
+<div class="row">
+    <div class="modal" id="order-parcel-modal">
+        <div class="col-4">
+            <P></P>
+        </div>
+        <div class="col-4">
+            <span class="close" id="close_add_modal" onclick="close_modal()">&times;</span>
+            <div class="form-area-section-modal">
+                <h1 class="text-white text-large">New Parcel Order</h1>
+                <form method="post" action="">
+                    <div>
+                        <label for="parcelname" class="text-white">Parcel name</label>
+                        <input type="text" name="parcel-name" id="parcelname" class="form-control">
+                    </div>
+                    <div>
+                        <label for="parcelDesc" class="text-white">Description</label>
+                        <textarea class="form-control" id="parcelDesc" name="parcelDesc" placeholder="your parcel description here....">
+
+                        </textarea>
+                    </div>
+                    <div>
+                        <label for="pickup" class="text-white">Pickup</label>
+                        <input type="text" name="pareclpickup" id="pickup" class="form-control">
+                    </div>
+                    <div>
+                        <label for="destination" class="text-white">Destination</label>
+                        <input type="text" name="destination" id="destination" class="form-control">
+                    </div>
+                    <div>
+                    </div>
+                    <div>
+                        <input type="submit" name="submit"  value="Place Order" id="submit" class="button-sunshine">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <P></P>
+    </div>
+</div>
+<!-- the beginning of the update parcel order modal box section-->
+<div class="row">
+    <div class="modal" id="update-parcel-modal">
+        <div class="col-4">
+            <P></P>
+        </div>
+        <div class="col-4">
+            <span class="close" id="update_add_modal" onclick="close_modal()">&times;</span>
+            <div class="form-area-section-modal">
+                <h1 class="text-white text-large">Update Destination</h1>
+                <form method="post" action="">
+                    <div>
+                        <label for="updateDestination" class="text-white">Destination</label>
+                        <input type="text" name="destination" id="updateDestination" class="form-control" placeholder="enter your current destination">
+                    </div>
+                    <div>
+                    </div>
+                    <input type="checkbox" name="cancel">Cancel Delivery
+                    <div>
+                        <input type="submit" name="submit"  value="update destination" id="updateCurrentDestination" class="button-sunshine">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <P></P>
+    </div>
+</div>
+<!-- the beginning of the user profile modal-->
+<div class="row">
+    <div class="modal" id="user-profile-modal">
+        <div class="col-4">
+            <P></P>
+        </div>
+        <div class="col-4">
+            <span class="close" id="user_profile_modal" onclick="close_profile_modal()">&times;</span>
+            <div class="form-area-section">
+                <h1 class="text-white text-large">user info information</h1>
+                <p><strong>Orders In Transit</strong>: 4578</p>
+                <p><strong>Orders Delivered</strong>: 4578</p>
+                <p><strong>Orders Canceled</strong>: 4578</p>
+            </div>
+        </div>
+        <div class="col-4">
+            <P></P>
+        </div>
+    </div>
+</div>
+<!--- the end of the user profile modal-->
+<!-- the footer sections begins from here -->
+<div class="footer-section">
+    <div class="footer-area">
+    </div>
+    <div class="copy-right-area">
+        <P>all rights reserved sendIT 2018</P>
+    </div>
+</div>
+<script src="../static/js/main.js" type="text/javascript"></script>
+</body>
+</html>
+
+
