@@ -1,4 +1,7 @@
 let create_orders=document.getElementById('submit');
+
+//get the access token in our local storage
+let token = localStorage.getItem('access-token');
 create_orders.addEventListener('click', createParcelOrders);
 
 function createParcelOrders(e) {
@@ -19,9 +22,6 @@ function createParcelOrders(e) {
         weight:weight
     };
 
-    //get the access token in our local storage
-    let token = localStorage.getItem('access-token');
-
     //posting parcel orders
     fetch("http://127.0.0.1:5000/api/v1/parcels",{
         method:'POST',
@@ -41,4 +41,20 @@ function createParcelOrders(e) {
                window.location.replace('../templates/parcelOrder.html');
            }
     });
+}
+
+
+// fetch all the parcels of a specific user
+window.onload = function loadParcelOrders(){
+    fetch("http://127.0.0.1:5000/api/v1/parcels",{
+        method:'GET',
+        headers:{
+            'Application':'application/json, text/plain, */*',
+            'Content-type':'application/json'
+        },
+        Authorization:`Bearer ${token}`
+    }).then((response)=> response.json())
+        .then(function (data){
+            alert(data['message']);
+        });
 }
