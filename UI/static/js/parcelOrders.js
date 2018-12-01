@@ -37,7 +37,8 @@ function createParcelOrders(e) {
             // showing respective errors to the users
             document.getElementById('order_errors').innerHTML= data['errors'];
            if(data['message']==='parcel order created successfully'){
-            window.location.replace('../templates/parcelOrder.html');
+               document.getElementById('order_errors').innerHTML= data['message'];
+               window.location.replace('../templates/parcelOrder.html');
            }
     });
 }
