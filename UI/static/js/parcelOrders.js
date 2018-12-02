@@ -119,3 +119,25 @@ function updateParcelDestination(e){
             window.location.replace('../templates/parcelOrder.html');
         });
 }
+// updating the parcel order status
+function updateStatus(parcel_id){
+    let data = {
+        status:'canceled'
+    };
+    fetch(`http://127.0.0.1:5000/api/v1/parcels/${parcel_id}`,{
+        method:'PUT',
+        headers:{
+            'Application':'application/json, text/plain,*/*',
+            'Content_type':'application/json',
+            Authorization:`Bearer ${token}`
+        },
+        body:JSON.stringify(data)
+    }).then((response)=>response.json())
+        .then(function (data){
+            alert(data['message']);
+            if(data['message']==='status has been successfully updated'){
+                document.getElementById('order-status').style.color='red';
+            }
+            window.location.replace('../templates/parcelOrder.html');
+        });
+}
