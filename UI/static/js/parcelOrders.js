@@ -1,4 +1,8 @@
 let create_orders=document.getElementById('submit');
+//get the access token in our local storage
+let token = localStorage.getItem('access-token');
+
+
 create_orders.addEventListener('click', createParcelOrders);
 
 function createParcelOrders(e) {
@@ -10,6 +14,7 @@ function createParcelOrders(e) {
     let destination=document.getElementById('destination').value;
     let weight =parseInt(document.getElementById('weight').value);
 
+
     // setting the data to be posted
     let data ={
         receivers_name:recieversName,
@@ -18,9 +23,6 @@ function createParcelOrders(e) {
         pickup:pickup,
         weight:weight
     };
-
-    //get the access token in our local storage
-    let token = localStorage.getItem('access-token');
 
     //posting parcel orders
     fetch("http://127.0.0.1:5000/api/v1/parcels",{
@@ -42,3 +44,59 @@ function createParcelOrders(e) {
            }
     });
 }
+
+
+// fetch all the parcels of a specific user
+window.onload = function loadParcelOrders(){
+    fetch("http://127.0.0.1:5000/api/v1/parcels",{
+        method:'GET',
+        headers:{
+            'Content-type':'application/json',
+            Authorization:`Bearer ${token}`
+        },
+    }).then((response)=> response.json())
+        .then(function (data){
+            if(data['parcel_orders']){
+                let output =`<table id="myTable">
+                <tr class="header">
+                    <th style="width:10%;">Serial No.</th>
+                    <th style="width:10%;">Receiver</th>
+                    <th style="width:30%;">Description</th>
+                    <th style="width:10%;">Pick up</th>
+                    <th style="width:10%;">Destination</th>
+                    <th style="width:15%;">Current location</th>
+                    <th style="width:10%;">Price</th>
+                    <th style="width:10%;">Status</th>
+                    <th style="width:15%;">Delivery </th>
+                </tr>`;
+                data['parcel_orders'].forEach(function (parcelorder){
+                    output+=`<tr>
+                    <td>${parcelorder.serial_no}</td>
+                    <td>${parcelorder.receivers}</td>
+                    <td>${parcelorder.description}</td>
+                    <td>${parcelorder.pickup}</td>
+                    <td>${parcelorder.destination}</td>
+                    <td>${parcelorder.current_location}</td>
+                    <td>${parcelorder.delivery_price}</td>
+                    <td>${parcelorder.status}</td>
+                    <td><button  class="button-success" onclick="update_parcel_order()">update</button></td>
+                </tr>`;
+                });
+                document.getElementById('parcels_content').innerHTML=output;
+            }else{
+                document.getElementById('parcels_content').style.color="red";
+                document.getElementById('parcels_content').innerHTML=`<h2>${data['errors']}</h2>`;
+            }
+        });
+}
+
+// update parcel destination
+let update_destination= document.getElementById('updateCurrentDestination');
+update_destination.addEventListener('click', updateParcelDestination);
+
+// the function for updating the parcel orders
+function updateParcelDestination(e){
+    e.preventDefault();
+    alert('hi there');
+}
+

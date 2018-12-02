@@ -1,6 +1,7 @@
 let  parcel_order_modal = document.getElementById('order-parcel-modal');
 let update_parcel_Destination_modal= document.getElementById('update-parcel-modal');
 let parcel_location_modal = document.getElementById('parcel-location-modal');
+let update_parcel_orders= document.getElementById('update-modal');
 function display_add_parcel_order() {
     parcel_order_modal.style.display = "block";
 }
@@ -12,7 +13,7 @@ function close_modal() {
 
 }
 /* function update Delivery Modal */
-function update_parcel_order() {
+function update_parcel_order(){
     update_parcel_Destination_modal.style.display="block";
 }
 /* functions to update location and status modal*/
