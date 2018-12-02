@@ -2,6 +2,7 @@ let create_orders=document.getElementById('submit');
 //get the access token in our local storage
 let token = localStorage.getItem('access-token');
 
+
 create_orders.addEventListener('click', createParcelOrders);
 
 function createParcelOrders(e) {
@@ -47,7 +48,6 @@ function createParcelOrders(e) {
 
 // fetch all the parcels of a specific user
 window.onload = function loadParcelOrders(){
-
     fetch("http://127.0.0.1:5000/api/v1/parcels",{
         method:'GET',
         headers:{
@@ -70,7 +70,6 @@ window.onload = function loadParcelOrders(){
                     <th style="width:15%;">Delivery </th>
                 </tr>`;
                 data['parcel_orders'].forEach(function (parcelorder){
-                    localStorage.setItem('parcel_id', parcelorder.parcel_id);
                     output+=`<tr>
                     <td>${parcelorder.serial_no}</td>
                     <td>${parcelorder.receivers}</td>
@@ -92,7 +91,12 @@ window.onload = function loadParcelOrders(){
 }
 
 // update parcel destination
+let update_destination= document.getElementById('updateCurrentDestination');
+update_destination.addEventListener('click', updateParcelDestination);
 
-function updateDesitnation(){
-    alert('have been clicked');
+// the function for updating the parcel orders
+function updateParcelDestination(e){
+    e.preventDefault();
+    alert('hi there');
 }
+
