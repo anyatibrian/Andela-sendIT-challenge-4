@@ -70,6 +70,7 @@ window.onload = function loadParcelOrders(){
                     <th style="width:15%;">Delivery </th>
                 </tr>`;
                 data['parcel_orders'].forEach(function (parcelorder){
+                    let parcel_id =parcelorder.parcel_id
                     output+=`<tr>
                     <td>${parcelorder.serial_no}</td>
                     <td>${parcelorder.receivers}</td>
@@ -79,7 +80,7 @@ window.onload = function loadParcelOrders(){
                     <td>${parcelorder.current_location}</td>
                     <td>${parcelorder.delivery_price}</td>
                     <td>${parcelorder.status}</td>
-                    <td><button  class="button-success" onclick="update_parcel_order()">update</button></td>
+                    <td><button  class="button-success" onclick="update_parcel_order(${parcel_id})">update</button></td>
                 </tr>`;
                 });
                 document.getElementById('parcels_content').innerHTML=output;
@@ -89,6 +90,7 @@ window.onload = function loadParcelOrders(){
             }
         });
 }
+
 
 // update parcel destination
 let update_destination= document.getElementById('updateCurrentDestination');
