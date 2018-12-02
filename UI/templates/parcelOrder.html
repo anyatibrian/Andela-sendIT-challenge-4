@@ -47,6 +47,7 @@
     <div class="row userAdmin-dashboard-content">
         <div class="col-11">
             <button class="button-sunshine-outline" id="add-order" onclick="display_add_parcel_order()">new order</button>
+            <!-- all the users parcels-->
             <span id="parcels_content"></span>
         </div>
     </div>
@@ -110,6 +111,7 @@
             <span class="close" id="update_add_modal" onclick="close_modal()">&times;</span>
             <div class="form-area-section-modal">
                 <h1 class="text-white text-large">Update Destination</h1>
+                <span id="parce_id"></span>
                 <form method="post" action="">
                     <div>
                         <label for="updateDestination" class="text-white">Destination</label>
@@ -160,6 +162,7 @@
 </div>
 <script src="../static/js/main.js" type="text/javascript"></script>
 <script src="../static/js/parcelOrders.js" type="text/javascript"></script>
+<script src="../static/js/updatestatus.js" type="text/javascript"></script>
 </body>
 </html>
 
