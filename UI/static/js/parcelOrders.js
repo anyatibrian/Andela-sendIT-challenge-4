@@ -79,7 +79,7 @@ window.onload = function loadParcelOrders(){
                     <td>${parcelorder.destination}</td>
                     <td>${parcelorder.current_location}</td>
                     <td>${parcelorder.delivery_price}</td>
-                    <td>${parcelorder.status}</td>
+                    <td><span id="order-status" onclick="updateStatus(${parcel_id})">${parcelorder.status}</span></td>
                     <td><button  class="button-success" onclick="update_parcel_order(${parcel_id})">update</button></td>
                 </tr>`;
                 });
@@ -99,6 +99,23 @@ update_destination.addEventListener('click', updateParcelDestination);
 // the function for updating the parcel orders
 function updateParcelDestination(e){
     e.preventDefault();
-    alert('hi there');
+    let update_destination = document.getElementById('updateDestination').value;
+    let parcel_id = parseInt(localStorage.getItem('parcel_id'));
+    alert(parcel_id);
+    let data = {
+        destination:update_destination
+    };
+    fetch(`http://127.0.0.1:5000/api/v1/parcels/${parcel_id}/destination`,{
+        method:'PUT',
+        headers:{
+            'Application':'application/json, text/plain,*/*',
+            'Content_type':'application/json',
+            Authorization:`Bearer ${token}`
+        },
+        body:JSON.stringify(data)
+    }).then((response)=>response.json())
+        .then(function (data){
+            alert(data['message']);
+            window.location.replace('../templates/parcelOrder.html');
+        });
 }
-

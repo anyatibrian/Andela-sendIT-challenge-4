@@ -24,6 +24,8 @@ function update_parcel_order(id){
     }).then((response)=>response.json())
         .then(function(data){
             document.getElementById('updateDestination').value =data['parcel_order']['destination'];
+            let parcel_id = parseInt(data['parcel_order']['parcel_id']);
+            localStorage.setItem('parcel_id', parcel_id);
         });
     update_parcel_Destination_modal.style.display="block";
 }
