@@ -56,6 +56,10 @@ function updateCurrentLocation(e){
     e.preventDefault();
     let id = localStorage.getItem('admin_parcel_id');
     let current_location = document.getElementById('current_location').value;
+    if(current_location==''){
+        document.getElementById('update-info').innerText = 'current location field is empty';
+        return false
+    }
     let data = {
         current_location:current_location
     };
@@ -69,7 +73,9 @@ function updateCurrentLocation(e){
         body:JSON.stringify(data)
     }).then((response)=>response.json())
         .then(function(data){
-            alert(data['message']);
-            window.location.replace('../templates/adminParcel.html');
+            if(data['message']=== 'present location successfully updated'){
+                document.getElementById('update-info').innerText = data['message'];
+                window.location.replace('../templates/adminParcel.html');
+            }
         });
 }
