@@ -70,7 +70,7 @@ window.onload = function loadParcelOrders(){
                     <th style="width:15%;">Delivery </th>
                 </tr>`;
                 data['parcel_orders'].forEach(function (parcelorder){
-                    let parcel_id =parcelorder.parcel_id
+                    let parcel_id =parcelorder.parcel_id;
                     output+=`<tr>
                     <td>${parcelorder.serial_no}</td>
                     <td>${parcelorder.receivers}</td>

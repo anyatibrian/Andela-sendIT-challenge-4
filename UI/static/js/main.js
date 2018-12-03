@@ -30,7 +30,8 @@ function update_parcel_order(id){
     update_parcel_Destination_modal.style.display="block";
 }
 /* functions to update location and status modal*/
-function update_location_modal() {
+function update_location_modal(id){
+    localStorage.setItem('admin_parcel_id', id);
     parcel_location_modal.style.display ="block"
 }
 function close_update_modal(){
