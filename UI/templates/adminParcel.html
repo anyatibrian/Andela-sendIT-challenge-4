@@ -80,6 +80,33 @@
         <P></P>
     </div>
 </div>
+<!-- the beginning of the update parcel order delivery status modal box section-->
+<div class="row">
+    <div class="modal" id="parcel-status-modal">
+        <div class="col-4">
+            <P></P>
+        </div>
+        <div class="col-4">
+            <span class="close" id="close-parcel-status-modal" onclick="close_update_modal()">&times;</span>
+            <div class="form-area-section-modal">
+                <h1 class="text-white text-large">Update Delivery Status</h1>
+                <form method="Post" action="../templates/adminParcel.html">
+                    <div>
+                        <label for="current_status" class="text-white">Delivery Status</label>
+                        <input type="text" name="status" id="current_status" class="form-control">
+                    </div>
+                    <div>
+                        <input type="submit" name="submit"  value="Update Now" id="update-status" class="button-sunshine">
+                    </div>
+                    <span id="status-update"></span>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <P></P>
+    </div>
+</div>
 <!-- the footer sections begins from here -->
 <div class="footer-section">
     <div class="footer-area">

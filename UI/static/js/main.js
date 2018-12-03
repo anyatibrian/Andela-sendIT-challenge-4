@@ -1,6 +1,7 @@
 let  parcel_order_modal = document.getElementById('order-parcel-modal');
 let update_parcel_Destination_modal= document.getElementById('update-parcel-modal');
 let parcel_location_modal = document.getElementById('parcel-location-modal');
+let parcel_status_modal = document.getElementById('parcel-status-modal');
 function display_add_parcel_order() {
     parcel_order_modal.style.display = "block";
 }
@@ -34,8 +35,14 @@ function update_location_modal(id){
     localStorage.setItem('admin_parcel_id', id);
     parcel_location_modal.style.display ="block"
 }
+
+/* function that updates the parcel delivery status */
+function update_status_modal(){
+    parcel_status_modal.style.display='block';
+}
 function close_update_modal(){
     parcel_location_modal.style.display="none";
+    parcel_status_modal.style.display="none";
 }
 /* the user profile modal section*/
 let user_profile_modal = document.getElementById('user-profile-modal');

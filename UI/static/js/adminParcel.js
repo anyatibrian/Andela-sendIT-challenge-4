@@ -40,7 +40,7 @@ window.onload = function loadAllOrders(e){
                     <td>${parcel_order.weight}</td>
                     <td>${parcel_order.status}</td>
                     <td><button  class="button-success" onclick="update_location_modal(${parcel_id})">update</button></td>
-                    <td><button  class="button-success" onclick="">update</button></td>
+                    <td><button  class="button-success" onclick="update_status_modal()">update</button></td>
                 </tr>`;
           });
           let parcel_orders =document.getElementById('parcel-orders');
