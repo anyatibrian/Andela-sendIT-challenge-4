@@ -28,6 +28,7 @@ window.onload = function loadAllOrders(e){
                     <th style="width:15%;">status </th>
                 </tr>`;
           data['parcel_orders'].forEach(function (parcel_order){
+              let parcel_id = parcel_order.parcel_id;
              output+=`<tr>
                     <td>${parcel_order.serial_no}</td>
                     <td>${parcel_order.receivers}</td>
@@ -38,11 +39,37 @@ window.onload = function loadAllOrders(e){
                     <td>${parcel_order.delivery_price}</td>
                     <td>${parcel_order.weight}</td>
                     <td>${parcel_order.status}</td>
-                    <td><button  class="button-success" onclick="update_location_modal()">update</button></td>
-                    <td><button  class="button-success" onclick="update_location_modal()">update</button></td>
+                    <td><button  class="button-success" onclick="update_location_modal(${parcel_id})">update</button></td>
+                    <td><button  class="button-success" onclick="">update</button></td>
                 </tr>`;
           });
           let parcel_orders =document.getElementById('parcel-orders');
           parcel_orders.innerHTML=output
+        });
+}
+
+// update the current location of parcel delivery order
+let update_location = document.getElementById('update-location');
+update_location.addEventListener('click', updateCurrentLocation);
+
+function updateCurrentLocation(e){
+    e.preventDefault();
+    let id = localStorage.getItem('admin_parcel_id');
+    let current_location = document.getElementById('current_location').value;
+    let data = {
+        current_location:current_location
+    };
+    fetch(`http://127.0.0.1:5000/api/v1/parcels/${id}/presentLocation`, {
+        method:'PUT',
+        headers:{
+            'Application':'application/json, text/plain,*/*',
+            'Content_type':'application/json',
+            Authorization:`Bearer ${token}`
+        },
+        body:JSON.stringify(data)
+    }).then((response)=>response.json())
+        .then(function(data){
+            alert(data['message']);
+            window.location.replace('../templates/adminParcel.html');
         });
 }
