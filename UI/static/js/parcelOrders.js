@@ -85,8 +85,9 @@ window.onload = function loadParcelOrders(){
                 });
                 document.getElementById('parcels_content').innerHTML=output;
             }else{
+                // display message to  the user incase they don't have any parcel orders
                 document.getElementById('parcels_content').style.color="red";
-                document.getElementById('parcels_content').innerHTML=`<h2>${data['errors']}</h2>`;
+                document.getElementById('parcels_content').innerHTML=`<h2>empty parcel orders list</h2>`;
             }
         });
 }

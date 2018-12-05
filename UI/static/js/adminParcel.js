@@ -37,10 +37,10 @@ window.onload = function loadAllOrders(e){
                     <td>${parcel_order.destination}</td>
                     <td>${parcel_order.current_location}</td>
                     <td>${parcel_order.delivery_price}</td>
-                    <td>${parcel_order.weight}</td>
+                    <td>${parcel_order.weight}kgs</td>
                     <td>${parcel_order.status}</td>
                     <td><button  class="button-success" onclick="update_location_modal(${parcel_id})">update</button></td>
-                    <td><button  class="button-success" onclick="">update</button></td>
+                    <td><button  class="button-success" onclick="update_status_modal(${parcel_id})">update</button></td>
                 </tr>`;
           });
           let parcel_orders =document.getElementById('parcel-orders');
@@ -76,6 +76,41 @@ function updateCurrentLocation(e){
             if(data['message']=== 'present location successfully updated'){
                 document.getElementById('update-info').innerText = data['message'];
                 window.location.replace('../templates/adminParcel.html');
+            }
+        });
+}
+
+// update the status of the parcel delivery orders
+let update_parcel_status = document.getElementById('update-status');
+
+update_parcel_status.addEventListener('click', updateParcelStatus);
+function updateParcelStatus(e){
+    e.preventDefault();
+    let status = document.getElementById('current_status').value;
+    let id = localStorage.getItem('admin_status_id');
+    if(status===''){
+        document.getElementById('status-update').innerText='status field is empty';
+        return false
+    }
+    let data = {
+        status:status
+    };
+    fetch(`http://127.0.0.1:5000/api/v1/parcels/${id}/status`,{
+        method:'PUT',
+        headers:{
+            'Application':'application/json, text/plain,*/*',
+            'Content_type':'application/json',
+            Authorization:`Bearer ${token}`
+        },
+        body:JSON.stringify(data)
+    }).then((response)=>response.json())
+        .then(function(data){
+            if(data['message']=== 'status has been successfully updated'){
+                document.getElementById('status-update').innerText= data['message'];
+                window.location.replace('../templates/adminParcel.html');
+            }else {
+                document.getElementById('status-update').innerText= data['error'];
+                return false
             }
         });
 }
