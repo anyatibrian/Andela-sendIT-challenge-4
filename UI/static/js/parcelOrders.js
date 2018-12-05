@@ -86,7 +86,7 @@ window.onload = function loadParcelOrders(){
                 document.getElementById('parcels_content').innerHTML=output;
             }else{
                 document.getElementById('parcels_content').style.color="red";
-                document.getElementById('parcels_content').innerHTML=`<h2>${data['errors']}</h2>`;
+                document.getElementById('parcels_content').innerHTML=`<h2>empty parcel orders list</h2>`;
             }
         });
 }
