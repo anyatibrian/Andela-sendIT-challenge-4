@@ -21,9 +21,6 @@ function loginUser(e){
         .then((data)=>{
 
             if (data['access-token']=== data['access-token'] && username =='admin'){
-                document.getElementById('login_error').innerText=data['message'];
-                document.getElementById('login_error').style.color='white';
-
                 window.location.replace('../templates/adminParcel.html');
                 let token = data['access-token'];
 
@@ -42,7 +39,10 @@ function loginUser(e){
                 localStorage.setItem('logged-in-user', username);
 
             }else{
+                document.getElementById('login_error').innerText=data['message'];
+                document.getElementById('login_error').style.color='white';
                 // redirect the user to the sign up page
+                window.location.replace('../templates/signup.html');
                return false
             }
     });
