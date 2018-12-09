@@ -2,8 +2,7 @@
 let token = localStorage.getItem('access-token');
 
 // function that fetches all the parcel orders
-window.onload = function loadAllOrders(e){
-    e.preventDefault();
+window.onload = function loadAllOrders(){
     fetch("https://sendit-challenge-three.herokuapp.com/api/v1/admin/parcels", {
         method:'GET',
         headers:{
