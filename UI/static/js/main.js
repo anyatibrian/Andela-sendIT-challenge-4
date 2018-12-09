@@ -68,3 +68,5 @@ function display_user_profile() {
 function close_profile_modal() {
     user_profile_modal.style.display ="none";
 }
+
+// function that enables us to search through our product lists
