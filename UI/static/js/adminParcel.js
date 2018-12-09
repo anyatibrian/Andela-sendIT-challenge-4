@@ -4,7 +4,7 @@ let token = localStorage.getItem('access-token');
 // function that fetches all the parcel orders
 window.onload = function loadAllOrders(e){
     e.preventDefault();
-    fetch("http://127.0.0.1:5000/api/v1/admin/parcels", {
+    fetch("https://sendit-challenge-three.herokuapp.com/api/v1/admin/parcels", {
         method:'GET',
         headers:{
             'Content-type':'application/json',
@@ -63,7 +63,7 @@ function updateCurrentLocation(e){
     let data = {
         current_location:current_location
     };
-    fetch(`http://127.0.0.1:5000/api/v1/parcels/${id}/presentLocation`, {
+    fetch(`https://sendit-challenge-three.herokuapp.com/api/v1/parcels/${id}/presentLocation`, {
         method:'PUT',
         headers:{
             'Application':'application/json, text/plain,*/*',
@@ -95,7 +95,7 @@ function updateParcelStatus(e){
     let data = {
         status:status
     };
-    fetch(`http://127.0.0.1:5000/api/v1/parcels/${id}/status`,{
+    fetch(`https://sendit-challenge-three.herokuapp.com/api/v1/parcels/${id}/status`,{
         method:'PUT',
         headers:{
             'Application':'application/json, text/plain,*/*',

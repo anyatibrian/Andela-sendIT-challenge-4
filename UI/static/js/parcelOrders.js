@@ -25,7 +25,7 @@ function createParcelOrders(e) {
     };
 
     //posting parcel orders
-    fetch("http://127.0.0.1:5000/api/v1/parcels",{
+    fetch("https://sendit-challenge-three.herokuapp.com/api/v1/parcels",{
         method:'POST',
         headers:{
             'Application':'application/json, text/plain,*/*',
@@ -48,7 +48,7 @@ function createParcelOrders(e) {
 
 // fetch all the parcels of a specific user
 window.onload = function loadParcelOrders(){
-    fetch("http://127.0.0.1:5000/api/v1/parcels",{
+    fetch("https://sendit-challenge-three.herokuapp.com/api/v1/parcels",{
         method:'GET',
         headers:{
             'Content-type':'application/json',
@@ -106,7 +106,7 @@ function updateParcelDestination(e){
     let data = {
         destination:update_destination
     };
-    fetch(`http://127.0.0.1:5000/api/v1/parcels/${parcel_id}/destination`,{
+    fetch(`https://sendit-challenge-three.herokuapp.com/api/v1/parcels/${parcel_id}/destination`,{
         method:'PUT',
         headers:{
             'Application':'application/json, text/plain,*/*',
@@ -125,7 +125,7 @@ function updateStatus(parcel_id){
     let data = {
         status:'canceled'
     };
-    fetch(`http://127.0.0.1:5000/api/v1/parcels/${parcel_id}`,{
+    fetch(`https://sendit-challenge-three.herokuapp.com/api/v1/parcels/${parcel_id}`,{
         method:'PUT',
         headers:{
             'Application':'application/json, text/plain,*/*',
