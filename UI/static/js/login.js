@@ -51,7 +51,6 @@ function loginUser(e){
 
 // the function that logs a user out
 
-document.getElementById('logout').addEventListener('click', logout);
 function logout(e){
     e.preventDefault();
     alert('hi there');
