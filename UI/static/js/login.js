@@ -47,3 +47,16 @@ function loginUser(e){
             }
     });
 }
+
+
+// the function that logs a user out
+
+document.getElementById('logout').addEventListener('click', logout);
+function logout(){
+    alert('hi there');
+    localStorage.removeItem('access-token');
+    localStorage.removeItem('logged-in-user');
+    localStorage.removeItem('parcel_id');
+    window.location.replace('../templates/login.html');
+}
+
