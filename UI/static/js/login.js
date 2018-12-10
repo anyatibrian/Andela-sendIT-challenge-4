@@ -52,7 +52,8 @@ function loginUser(e){
 // the function that logs a user out
 
 document.getElementById('logout').addEventListener('click', logout);
-function logout(){
+function logout(e){
+    e.preventDefault();
     alert('hi there');
     localStorage.removeItem('access-token');
     localStorage.removeItem('logged-in-user');
