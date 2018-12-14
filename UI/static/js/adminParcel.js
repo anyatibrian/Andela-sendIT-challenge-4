@@ -76,6 +76,9 @@ function updateCurrentLocation(e){
             if(data['message']=== 'present location successfully updated'){
                 document.getElementById('update-info').innerText = data['message'];
                 window.location.replace('../templates/adminParcel.html');
+            }else {
+                document.getElementById('update-info').innerText= data['error'];
+                return false
             }
         });
 }
