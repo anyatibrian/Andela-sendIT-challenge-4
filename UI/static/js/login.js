@@ -10,7 +10,7 @@ function loginUser(e){
         username:username,
         password:password
     };
-    fetch("https://sendit-challenge-three.herokuapp.com/api/v1/auth/login",{
+    fetch("http://127.0.0.1:5000/api/v1/auth/login",{
         method:'POST',
         headers: {
             'Accept': 'application/json, text/plain, */*',
@@ -20,7 +20,7 @@ function loginUser(e){
     }).then((response)=>response.json())
         .then((data)=>{
 
-            if (data['access-token']=== data['access-token'] && username =='admin'){
+            if (data['access-token']=== data['access-token'] && username ==='admin'){
                 window.location.replace('../templates/adminParcel.html');
                 let token = data['access-token'];
 

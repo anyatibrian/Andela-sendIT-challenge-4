@@ -93,7 +93,10 @@
                 <form method="Post" action="../templates/adminParcel.html">
                     <div>
                         <label for="current_status" class="text-white">Delivery Status</label>
-                        <input type="text" name="status" id="current_status" class="form-control">
+                        <select name="status" id="current_status" class="form-control">
+                            <option value="Transit">Transit</option>
+                            <option value="Delivered">Delivered</option>
+                        </select>
                     </div>
                     <div>
                         <input type="submit" name="submit"  value="Update Now" id="update-status" class="button-sunshine">

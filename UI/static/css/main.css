@@ -1,7 +1,10 @@
 body{
     font-size:12px;
     font-family: 'Raleway', sans-serif;
-    margin: 0px;
+    margin:0;
+    position: relative;
+    min-height:700px;
+    padding:0;
 }
 /* navigation section*/
 .navbar,.header{
@@ -31,6 +34,9 @@ li a {
 li a:hover {
     border: 1px solid orange;
     border-radius: 5px;
+}
+a{
+    text-decoration: none;
 }
 /* various column areas*/
 /* user profile image section */
@@ -189,6 +195,13 @@ li a:hover {
     margin: 30px 5px 5px 0px;
     border: 2px solid orange;
 }
+select>option{
+    color: black;
+    padding: 20px 0 20px 0;
+    font-family: 'Raleway', sans-serif;
+    font-size:12px;
+}
+
 /* end of the styling for various form elements
  */
 /* the table styling */
@@ -198,11 +211,11 @@ li a:hover {
     border: 1px solid #ddd;
     font-size: 15px;
     margin-top: 30px;
+    margin-bottom:100px;
     overflow-x:auto;
     margin-right: 30px;
     margin-left: 50px;
 }
-
 #myTable th, #myTable td {
     text-align: left;
     padding: 12px;
@@ -215,6 +228,28 @@ li a:hover {
 
 #myTable tr.header, #myTable tr:hover {
     background-color: #f1f1f1;
+}
+/* styling various alert box element*/
+.alert-box{
+    display:none;
+    position: fixed;
+    top: 150px;
+    padding: 20px;
+    background-color:seagreen; /* orange color */
+    text-align: center;
+    color: white;
+    width: 40%;
+    border-radius:5px;
+    margin-left:150px;
+}
+.alert-modal{
+    display:none;
+    position: fixed;
+    top: 50px;
+    padding: 20px;
+    background-color:white; /* orange color */
+    color:seagreen;
+    border-radius:5px;
 }
 /* modal boxes */
 /* The Modal background */
@@ -273,14 +308,20 @@ li a:hover {
 }
 /* end of the content styling */
 /* footer section */
+body::after {
+    content: '';
+    display: block;
+    height: 50px; /* Set same as footer's height */
+}
 .footer-section{
-    margin-top: 50px;
     background:black;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     padding: 30px 0px 30px 0px;
 }
 .footer-section2{
     margin-top: 50px;
-    padding: 0px 0px 0px 0px;
 }
 .copy-right-area > p{
     text-align:center;
@@ -288,3 +329,8 @@ li a:hover {
     font-size:12px;
 }
 /* end of styling for footers section */
+/*styling for the google maps */
+#maps{
+    height: 800px;
+    width: 100%;
+}

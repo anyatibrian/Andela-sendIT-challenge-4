@@ -25,7 +25,7 @@ function createParcelOrders(e) {
     };
 
     //posting parcel orders
-    fetch("https://sendit-challenge-three.herokuapp.com/api/v1/parcels",{
+    fetch("http://127.0.0.1:5000/api/v1/parcels",{
         method:'POST',
         headers:{
             'Application':'application/json, text/plain,*/*',
@@ -48,7 +48,7 @@ function createParcelOrders(e) {
 
 // fetch all the parcels of a specific user
 window.onload = function loadParcelOrders(){
-    fetch("https://sendit-challenge-three.herokuapp.com/api/v1/parcels",{
+    fetch("http://127.0.0.1:5000/api/v1/parcels",{
         method:'GET',
         headers:{
             'Content-type':'application/json',
@@ -91,10 +91,8 @@ window.onload = function loadParcelOrders(){
             }
         });
 }
-
-
 // update parcel destination
-let update_destination= document.getElementById('updateCurrentDestination');
+let update_destination = document.getElementById('updateCurrentDestination');
 update_destination.addEventListener('click', updateParcelDestination);
 
 // the function for updating the parcel orders
@@ -102,11 +100,10 @@ function updateParcelDestination(e){
     e.preventDefault();
     let update_destination = document.getElementById('updateDestination').value;
     let parcel_id = parseInt(localStorage.getItem('parcel_id'));
-    alert(parcel_id);
     let data = {
         destination:update_destination
     };
-    fetch(`https://sendit-challenge-three.herokuapp.com/api/v1/parcels/${parcel_id}/destination`,{
+    fetch(`http://127.0.0.1:5000/api/v1/parcels/${parcel_id}/destination`,{
         method:'PUT',
         headers:{
             'Application':'application/json, text/plain,*/*',
@@ -116,7 +113,7 @@ function updateParcelDestination(e){
         body:JSON.stringify(data)
     }).then((response)=>response.json())
         .then(function (data){
-            alert(data['message']);
+            document.getElementById('inf-message').innerText= data['message'];
             window.location.replace('../templates/parcelOrder.html');
         });
 }
@@ -125,7 +122,7 @@ function updateStatus(parcel_id){
     let data = {
         status:'canceled'
     };
-    fetch(`https://sendit-challenge-three.herokuapp.com/api/v1/parcels/${parcel_id}`,{
+    fetch(`http://127.0.0.1:5000/api/v1/parcels/${parcel_id}`,{
         method:'PUT',
         headers:{
             'Application':'application/json, text/plain,*/*',
@@ -135,10 +132,13 @@ function updateStatus(parcel_id){
         body:JSON.stringify(data)
     }).then((response)=>response.json())
         .then(function (data){
-            alert(data['message']);
-            if(data['message']==='status has been successfully updated'){
-                document.getElementById('order-status').style.color='red';
-            }
-            window.location.replace('../templates/parcelOrder.html');
+            let alert =document.getElementById('alert-box');
+            alert.style.display='block';
+            //set the time function for an alert box to display
+            setTimeout(function () {
+                alert.style.display='none';
+                window.location.replace('../templates/parcelOrder.html');
+            }, 1000);
+            document.getElementById('alert-element').innerText = data['message'];
         });
 }

@@ -9,16 +9,16 @@ function registerUser(e){
     let email=document.getElementById('useremail').value;
     let password=document.getElementById('password').value;
     // handling form validation
-    if(username ==''){
+    if(username ===''){
         document.getElementById('name_error').innerText ="please enter your name";
         document.getElementById('name_error').style.color="red";
         return false
     }
-    else if(email== ''){
+    else if(email=== ''){
         document.getElementById('email_error').innerText="please enter your email";
         document.getElementById('email_error').style.color="red";
         return false
-    }else if(password== ''){
+    }else if(password === ''){
         document.getElementById('password_error').innerText="please enter your password";
         document.getElementById('email_error').style.color="red";
         return false
@@ -29,7 +29,7 @@ function registerUser(e){
         password:password,
         email:email
     };
-    fetch('https://sendit-challenge-three.herokuapp.com/api/v1/auth/signup',{
+    fetch("http://127.0.0.1:5000/api/v1/auth/signup",{
         method:'POST',
         headers: {
             'Accept': 'application/json, text/plain, */*',

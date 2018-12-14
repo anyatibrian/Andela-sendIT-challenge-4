@@ -15,7 +15,7 @@ function close_modal() {
 /* function update Delivery Modal */
 function update_parcel_order(id){
     localStorage.setItem('parcel_id',id);
-    fetch(`https://sendit-challenge-three.herokuapp.com/api/v1/parcels/${id}`,{
+    fetch(`http://127.0.0.1:5000/api/v1/parcels/${id}`,{
         method:'GET',
         headers:{
             'Application':'application/json, text/plain, */*',
@@ -49,7 +49,7 @@ function close_update_modal(){
 let user_profile_modal = document.getElementById('user-profile-modal');
 function display_user_profile() {
     // the function that fetches a specific user profile info
-    fetch("https://sendit-challenge-three.herokuapp.com/api/v1/auth/profiles",{
+    fetch("http://127.0.0.1:5000/api/v1/auth/profiles",{
         method:'GET',
         headers:{
             'Content-type':'application/json',
