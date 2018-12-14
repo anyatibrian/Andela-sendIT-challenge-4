@@ -68,5 +68,5 @@ function display_user_profile() {
 function close_profile_modal() {
     user_profile_modal.style.display ="none";
 }
-
-// function that enables us to search through our product lists
+// function that enables auto completion in your district field
+let countries = [Buikwe, Bukomansimbi, Butambala, Buvuma, Gomba ,Kalangala,Kalungu,Kampala,Kayunga, Kiboga, Kyankwanzi,Luweero, Lwengo ,Lyantonde, Masaka, Mityana,Mpigi, Mubende, Mukono , Nakaseke , Nakasongola,Rakai ,Ssembabule,Wakiso]

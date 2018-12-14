@@ -334,3 +334,9 @@ body::after {
     height: 800px;
     width: 100%;
 }
+/* styling the auto complete fields
+ */
+.autocomplete{
+    position: relative;
+    display: inline-block;
+}
