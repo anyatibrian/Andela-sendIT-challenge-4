@@ -57,7 +57,7 @@ window.onload = function loadParcelOrders(){
     }).then((response)=> response.json())
         .then(function (data){
             if(data['parcel_orders']){
-                let output =`<table id="myTable">
+                let output =`<table id="myTable" class="order-table table">
                 <tr class="header">
                     <th style="width:10%;">Serial No.</th>
                     <th style="width:10%;">Receiver</th>

@@ -1,27 +1,39 @@
-document.getElementById('search').addEventListener('keyup', SearchParcelOrders);
-//function that enables us to search through the product list
-function SearchParcelOrders(e){
-    e.preventDefault();
-    let table = document.getElementById('myTable');
-    let input = document.getElementById('search').value;
-    let search = input.toUpperCase();
-    let tr = table.getElementsByTagName('tr');
+(function(document) {
+    'use strict';
 
-    // loop through the table and find the one which matches our search result
-    let i;
+    let  LightTableFilter = (function(Arr) {
 
-    for(i=0; i< tr.length; i++){
+        let _input;
 
-        let td=tr[i].getElementsByTagName("td")[0];
-        if (td){
-            let searchResult = td.textContent|| td.innerText;
-            if (searchResult.toUpperCase().indexOf(search) > -1){
-                tr[i].style.display = "";
-            }
-            else {
-                tr[i].style.display = "none";
-            }
+        function _onInputEvent(e) {
+            _input = e.target;
+            let tables = document.getElementsByClassName(_input.getAttribute('data-table'));
+            Arr.forEach.call(tables, function(table) {
+                Arr.forEach.call(table.tBodies, function(tbody) {
+                    Arr.forEach.call(tbody.rows, _filter);
+                });
+            });
         }
-    }
 
-}
+        function _filter(row) {
+            let text = row.textContent.toLowerCase(), val = _input.value.toLowerCase();
+            row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
+        }
+
+        return {
+            init: function() {
+                let  inputs = document.getElementsByClassName('search-form');
+                Arr.forEach.call(inputs, function(input) {
+                    input.oninput = _onInputEvent;
+                });
+            }
+        };
+    })(Array.prototype);
+
+    document.addEventListener('readystatechange', function() {
+        if (document.readyState === 'complete') {
+            LightTableFilter.init();
+        }
+    });
+
+})(document);
