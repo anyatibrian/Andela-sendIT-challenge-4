@@ -113,8 +113,13 @@ function updateParcelDestination(e){
         body:JSON.stringify(data)
     }).then((response)=>response.json())
         .then(function (data){
-            document.getElementById('inf-message').innerText= data['message'];
-            window.location.replace('../templates/parcelOrder.html');
+            if(data['message'] === 'parcel destination updated successfully'){
+                document.getElementById('inf-message').innerText= data['message'];
+                window.location.replace('../templates/parcelOrder.html');
+            }else {
+                document.getElementById('inf-message').innerText= data['error'];
+                return false
+            }
         });
 }
 // updating the parcel order status

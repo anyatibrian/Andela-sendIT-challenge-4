@@ -5,6 +5,7 @@ submit.addEventListener('click', registerUser);
 function registerUser(e){
     e.preventDefault();
     // intializing our data
+    let cfmPassword = document.getElementById('cfm-password').value;
     let username=document.getElementById('username').value;
     let email=document.getElementById('useremail').value;
     let password=document.getElementById('password').value;
@@ -21,6 +22,9 @@ function registerUser(e){
     }else if(password === ''){
         document.getElementById('password_error').innerText="please enter your password";
         document.getElementById('email_error').style.color="red";
+        return false
+    }else if (password !==cfmPassword && cfmPassword !== ''){
+        document.getElementById('cfm-password_error').innerText="your password does not match";
         return false
     }
     //posting information into the database

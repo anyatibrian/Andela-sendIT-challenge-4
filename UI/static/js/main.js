@@ -65,8 +65,8 @@ function display_user_profile() {
         });
     user_profile_modal.style.display ="block";
 }
-function close_profile_modal() {
+function close_profile_modal(){
     user_profile_modal.style.display ="none";
 }
-// function that enables auto completion in your district field
-let countries = [Buikwe, Bukomansimbi, Butambala, Buvuma, Gomba ,Kalangala,Kalungu,Kampala,Kayunga, Kiboga, Kyankwanzi,Luweero, Lwengo ,Lyantonde, Masaka, Mityana,Mpigi, Mubende, Mukono , Nakaseke , Nakasongola,Rakai ,Ssembabule,Wakiso]
+//call to the auto complete function
+autoComplete(document.getElementById('updateDestination'), current_location);
